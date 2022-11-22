@@ -1,0 +1,67 @@
+apiVersion: v1
+kind: Secret
+metadata:
+  name: tomcat-secret
+data:
+  user: yeswanth
+  pass: yeswanth  
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: tomcat-configmap
+data:
+  dburl: https  
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: tomcat
+  labels:
+    app: t1
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: t1
+  template:
+    metadata:
+      labels:
+        app: t1
+    spec:
+      containers:
+        - name: t1
+          image: tomcat
+          ports:
+          - containerPort: 8080
+          env:
+          - name: username
+            valueFrom:
+              secretKeyRef:
+                name: tomcat-secret
+                key: user
+          - name: password
+            valueFrom:
+              secretKeyRef:
+                name: tomcat-secret
+                key: pass
+          - name: url
+            valueFrom:
+              configMapKeyRef:
+                name: tomcat-configmap
+                key: dburl   
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: tomcat-service
+spec:
+  selector:
+    app: t1
+  type: LoadBalancer  
+  ports:
+    - protocol: TCP
+      port: 8080
+      targetPort: 8080
+      nodePort: 30000
+
