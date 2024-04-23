@@ -22,4 +22,3 @@ spec:
       selfHeal: true
   destination:
     server: https://kubernetes.default.svc
-    namespace: myapp
