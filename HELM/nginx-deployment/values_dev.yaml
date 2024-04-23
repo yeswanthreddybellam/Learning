@@ -1,0 +1,4 @@
+
+namespace: dev
+env_variables:
+  enabled: false

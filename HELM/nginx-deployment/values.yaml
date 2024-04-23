@@ -1,0 +1,7 @@
+
+namespace: qa
+appname: nginx
+cport: 80
+replicas: 2
+env_variables:
+  enabled: true
