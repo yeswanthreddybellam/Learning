@@ -1,11 +1,13 @@
+---
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: nginx-argo
+  name: nginx-argo-application
   namespace: argocd
   finalizers:
     - resources-finalizer.argocd.argoproj.io
 spec:
+  project: default
   source:
     path: HELM/nginx-deployment
     repoURL: https://github.com/yeswanthreddybellam/Learning.git
@@ -13,9 +15,10 @@ spec:
     helm:
       valueFiles:
         - values.yaml
+        - values_dev.yaml
   syncPolicy:
     syncOptions:
-    - CreateNamespace: true
+      - CreateNamespace=true
     automated:
       prune: true
       selfHeal: true
