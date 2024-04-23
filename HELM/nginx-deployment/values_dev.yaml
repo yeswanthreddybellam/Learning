@@ -1,4 +1,4 @@
 
-namespace: dev
+replicas: 3
 env_variables:
   enabled: false
