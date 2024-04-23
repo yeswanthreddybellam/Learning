@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-deployment
+  namespace: {{ .Values.namespace }}
+  labels:
+    app:  {{ .Values.appname }}
+spec:
+  replicas: {{ .Values.replicas}}
+  selector:
+    matchLabels:
+      app: {{ .Values.appname }}
+  updateStrategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 1    
+  template:
+    metadata:
+      labels:
+        app: {{ .Values.appname }}
+    spec:
+      containers:
+      - name: nginx
+        image: nginx:1.14.2
+        ports:
+        - containerPort: {{ .Values.cport }}
+        env:
+        - name: JVM
+          value: "11"
+        - name: MACHINE
+          value: "17"
+        - name: SERVER
+          value: "cf111"
+        {{- if .Values.env_variables.enabled }}
+        - name: Consul
+          value: "True"
+        {{- else }}  
+        - name: Consul
+          value: "False"
+        {{- end }}
