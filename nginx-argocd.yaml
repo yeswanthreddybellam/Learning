@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: nginx
+  name: nginx-argo
   namespace: argocd
   finalizers:
     - resources-finalizer.argocd.argoproj.io
@@ -15,7 +15,7 @@ spec:
         - values.yaml
   syncPolicy:
     syncOptions:
-    - Createnamespace: true
+    - CreateNamespace: true
     automated:
       prune: true
       selfHeal: true
