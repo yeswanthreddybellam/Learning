@@ -10,7 +10,7 @@ spec:
   project: default
   source:
     path: HELM/nginx-deployment
-    repoURL: https://github.com/yeswanthreddybellam/Learning.git
+    repoURL: https://github.com/yeswanthreddybellam/Learning
     targetRevision: HEAD
     helm:
       valueFiles:
