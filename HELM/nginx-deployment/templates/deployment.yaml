@@ -28,7 +28,7 @@ spec:
         - name: JVM
           value: "11"
         - name: MACHINE
-          value: "17"
+          value: "18"
         - name: SERVER
           value: "cf111"
         {{- if .Values.env_variables.enabled }}
