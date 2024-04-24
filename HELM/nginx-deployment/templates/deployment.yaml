@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: nginx-deployment
+  name: {{ .Values.metadata.name}}
   namespace: {{ .Values.namespace }}
   labels:
     app:  {{ .Values.appname }}
