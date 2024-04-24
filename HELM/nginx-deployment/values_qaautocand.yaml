@@ -1,5 +1,6 @@
 
 replicas: 3
+appname: nginx-qaautocand
 environment: QAAUTOCAND
 env_variables:
   enabled: false
