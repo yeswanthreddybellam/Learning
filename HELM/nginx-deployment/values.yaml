@@ -1,4 +1,4 @@
-
+metadata.name: nginx-deployment-qacand
 namespace: qa
 appname: nginx-qacand
 cport: 80
