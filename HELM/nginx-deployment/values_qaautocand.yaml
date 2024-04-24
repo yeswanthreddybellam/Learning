@@ -1,6 +1,6 @@
 
 replicas: 3
-metadata.name: nginx-deployment-qaautocand
+metadataname: nginx-deployment-qaautocand
 appname: nginx-qaautocand
 environment: QAAUTOCAND
 env_variables:
