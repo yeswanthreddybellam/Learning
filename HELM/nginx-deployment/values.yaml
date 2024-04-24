@@ -5,4 +5,4 @@ cport: 80
 replicas: 2
 environment: QACAND
 env_variables:
-  enabled: true
+  enabled: false
