@@ -13,7 +13,7 @@ spec:
           pathType: Prefix
           backend:
               service:
-                name:  nginx-service
+                name:  {{ .Values.appname }}-service
                 port:
                   number: 8083
         
