@@ -10,7 +10,7 @@ spec:
     - host: {{ .Values.environment }}.cars
       http:
         paths:
-        - path: /nexon
+        - path: /
           pathType: Prefix
           backend:
               service:
