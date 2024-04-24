@@ -13,13 +13,7 @@ spec:
           pathType: Prefix
           backend:
               service:
-                name:  nginx-nexon-service
+                name:  nginx-service
                 port:
                   number: 8083
-        - path: /agaro
-          pathType: Prefix
-          backend:
-              service:
-                name:  nginx-agaro-service
-                port:
-                  number: 8082 
+        
