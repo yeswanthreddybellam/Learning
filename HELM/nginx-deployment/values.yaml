@@ -3,5 +3,6 @@ namespace: qa
 appname: nginx
 cport: 80
 replicas: 2
+environment: QACAND
 env_variables:
   enabled: true
