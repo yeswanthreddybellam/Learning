@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: nginx-argo-application
+  name: nginx-argo-qaautocand-application
   namespace: argocd
   finalizers:
     - resources-finalizer.argocd.argoproj.io
