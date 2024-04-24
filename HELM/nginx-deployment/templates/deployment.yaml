@@ -21,7 +21,7 @@ spec:
     spec:
       containers:
       - name: nginx
-        image: hub.docker.com/yeshw/nexon
+        image: hub.docker.com/yeshw/nexon:latest
         ports:
         - containerPort: {{ .Values.cport }}
         env:
