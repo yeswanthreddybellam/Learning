@@ -1,5 +1,5 @@
 metadataname: nginx-deployment-qacand
-namespace: qa
+namespace: qa-qacand
 appname: nginx-qacand
 cport: 80
 replicas: 2
