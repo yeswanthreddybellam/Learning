@@ -11,4 +11,4 @@ spec:
     protocol: TCP
     port: 80
     targetPort: {{ .Values.cport }}
-  type: LoadBalancer
+  type: NodePort
