@@ -16,5 +16,5 @@ spec:
               service:
                 name:  {{ .Values.appname }}-service
                 port:
-                  number: 8083
+                  number: 80
         
