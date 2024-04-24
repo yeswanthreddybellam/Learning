@@ -32,7 +32,7 @@ spec:
         - name: SERVER
           value: "cf111"
         - name: ENVIRONMENT
-          value: {{ .Value.environment}}
+          value: {{ .Values.environment}}
         {{- if .Values.env_variables.enabled }}
         - name: Consul
           value: "True"
