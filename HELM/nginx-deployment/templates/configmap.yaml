@@ -1,4 +1,3 @@
-{{- range $i, $e := (include "global.getHostnameList" .Values.global.zookeeper.hosts | fromYamlArray) }}
 apiVersion: v1
 kind: ConfigMap
 metadata:
