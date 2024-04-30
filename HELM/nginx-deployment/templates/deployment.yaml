@@ -33,6 +33,8 @@ spec:
           value: "cf111"
         - name: ENVIRONMENT
           value: {{ .Values.environment}}
+        - name: Release
+          value: {{ .Release.Name }}
         {{- if .Values.env_variables.enabled }}
         - name: Consul
           value: "True"
