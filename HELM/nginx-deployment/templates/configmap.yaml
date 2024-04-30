@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ .Values.appname  }}
+data:
+  dna.json: |-
+    {
+      "cf": {
+        "nodes": {{$HOSTNAME | toJson}}
+      }
+    }
+    
