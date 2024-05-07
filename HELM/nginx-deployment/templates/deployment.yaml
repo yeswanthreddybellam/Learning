@@ -24,15 +24,6 @@ spec:
         image: nginx
         ports:
         - containerPort: {{ .Values.cport }} # Helm templating used here
-        volumeMounts:
-          - mountPath: /import
-            name: import # Issue here: indentation is not consistent
-          - mountPath: /web/SP/SPMetadata.xml
-            name: datacentername
-            subPath: SPMetadata.xml
-          - name: loadconfig
-            mountPath: "/loadconfig"
-            readOnly: true
         env:
         - name: JVM
           value: "11"
@@ -56,19 +47,4 @@ spec:
         - name: Consul
           value: "False"
         {{- end }}  
-      volumes:
-       - emptyDir: {}
-          name: import # Issue here: indentation is not consistent
-        # You set volumes at the Pod level, then mount them into containers inside that Pod
-      - configMap:
-            defaultMode: 0644
-            name: {{ .Values.appname }}-datacentername # Helm templating used here
-          name: datacentername
-      - name: loadconfig
-        configMap:
-          # Provide the name of the ConfigMap you want to mount.
-          name: {{ .Values.appname }}-game-demo # Helm templating used here
-          # An array of keys from the ConfigMap to create as files
-          items:
-          - key: "player_initial_lives"
-            path: "player_initial_lives"
+
