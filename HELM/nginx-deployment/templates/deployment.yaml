@@ -24,6 +24,10 @@ spec:
         image: nginx
         ports:
         - containerPort: {{ .Values.cport }}
+        volumeMounts:
+          - name: load_config
+          mountPath: "/load_config"
+          readOnly: true
         env:
         - name: JVM
           value: "11"
@@ -46,4 +50,16 @@ spec:
         {{- else }}  
         - name: Consul
           value: "False"
-        {{- end }}
+        {{- end }}  
+      volumes:
+        # You set volumes at the Pod level, then mount them into containers inside that Pod
+      - name: load_config
+        configMap:
+          # Provide the name of the ConfigMap you want to mount.
+          name: {{ .Values.appname }}-game-demo
+          # An array of keys from the ConfigMap to create as files
+          items:
+          - key: "player_initial_lives"
+            path: "player_initial_lives"   
+           
+        
