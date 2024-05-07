@@ -5,4 +5,9 @@ metadata:
   namespace: {{ .Values.namespace }}
 data:
   player_initial_lives: "3"
-  ui_properties_file_name: "user-interface.properties"  
+  ui_properties_file_name: "user-interface.properties" 
+  ui.properties: |
+    color.good=purple
+    color.bad=yellow
+    allow.textmode=true
+    how.nice.to.look=fairlyNice
