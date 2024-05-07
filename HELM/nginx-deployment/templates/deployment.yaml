@@ -27,7 +27,6 @@ spec:
         volumeMounts:
           - name: datacenter-config
             mountPath: /app/tomcat/sf_conf/datacenter.json
-            subPath: datacenter.json
           - name: game-demo-config
             mountPath: /gamedemo-config  
         env:
