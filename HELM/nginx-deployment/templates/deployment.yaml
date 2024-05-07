@@ -26,7 +26,7 @@ spec:
         - containerPort: {{ .Values.cport }} # Helm templating used here
         volumeMounts:
           - name: datacenter-config
-            mountPath: /app/tomcat/sf_conf/datacenter.json
+            mountPath: /etc
           - name: game-demo-config
             mountPath: /gamedemo-config  
         env:
