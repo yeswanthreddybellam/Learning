@@ -25,6 +25,9 @@ spec:
         ports:
         - containerPort: {{ .Values.cport }}
         volumeMounts:
+        - mountPath: /web/SP/SPMetadata.xml
+              name: datacentername
+              subPath: SPMetadata.xml
         - name: loadconfig
           mountPath: "/loadconfig"
           readOnly: true
@@ -53,6 +56,10 @@ spec:
         {{- end }}  
       volumes:
         # You set volumes at the Pod level, then mount them into containers inside that Pod
+      - configMap:
+            defaultMode: 0644
+            name: {{ .Values.appname }}-datacentername
+          name: datacentername
       - name: loadconfig
         configMap:
           # Provide the name of the ConfigMap you want to mount.
