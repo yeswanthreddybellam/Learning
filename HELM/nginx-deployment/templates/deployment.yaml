@@ -27,6 +27,11 @@ spec:
         env:
         - name: JVM
           value: "11"
+        - name: PLAYER_INITIAL_LIVES
+          valueFrom:
+            configMapKeyRef:
+              name: {{ .Values.appname }}-game-demo
+              key: player_initial_lives
         - name: MACHINE
           value: "18"
         - name: SERVER
