@@ -25,6 +25,8 @@ spec:
         ports:
         - containerPort: {{ .Values.cport }}
         volumeMounts:
+          - mountPath: /import
+              name: import
           - mountPath: /web/SP/SPMetadata.xml
             name: datacentername
             subPath: SPMetadata.xml
@@ -55,6 +57,8 @@ spec:
           value: "False"
         {{- end }}  
       volumes:
+       - emptyDir: {}
+          name: import
         # You set volumes at the Pod level, then mount them into containers inside that Pod
       - configMap:
             defaultMode: 0644
