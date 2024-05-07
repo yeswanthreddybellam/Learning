@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ .Values.appname }}-game-demo
+  namespace: {{ .Values.namespace }}
+data:
+  datacentername: dc25-{{ .Values.appname }}
