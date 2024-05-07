@@ -24,6 +24,11 @@ spec:
         image: nginx
         ports:
         - containerPort: {{ .Values.cport }} # Helm templating used here
+        volumeMounts:
+          - name: datacenter-config
+            mountPath: /datacenter-config
+          - name: game-demo-config
+            mountPath: /gamedemo-config  
         env:
         - name: JVM
           value: "11"
@@ -47,4 +52,13 @@ spec:
         - name: Consul
           value: "False"
         {{- end }}  
+      volumes:
+        - name: datacenter-config
+          configMap:
+            name: {{ .Values.appname }}-datacentername
+        - name: game-demo-config
+          configMap:
+            name: {{ .Values.appname }}-game-demo
+              
+          
 
