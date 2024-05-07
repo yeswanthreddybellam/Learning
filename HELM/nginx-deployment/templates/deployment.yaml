@@ -1,32 +1,32 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ .Values.metadataname }}
-  namespace: {{ .Values.namespace }}
+  name: {{ .Values.metadataname }} # Helm templating used here
+  namespace: {{ .Values.namespace }} # Helm templating used here
   labels:
-    app:  {{ .Values.appname }}
+    app:  {{ .Values.appname }} # Helm templating used here
 spec:
-  replicas: {{ .Values.replicas}}
+  replicas: {{ .Values.replicas}} # Helm templating used here
   selector:
     matchLabels:
-      app: {{ .Values.appname }}
+      app: {{ .Values.appname }} # Helm templating used here
   updateStrategy:
     type: RollingUpdate
     rollingUpdate:
-      maxUnavailable: 1    
+      maxUnavailable: 1
   template:
     metadata:
       labels:
-        app: {{ .Values.appname }}
+        app: {{ .Values.appname }} # Helm templating used here
     spec:
       containers:
       - name: nginx
         image: nginx
         ports:
-        - containerPort: {{ .Values.cport }}
+        - containerPort: {{ .Values.cport }} # Helm templating used here
         volumeMounts:
           - mountPath: /import
-              name: import
+              name: import # Issue here: indentation is not consistent
           - mountPath: /web/SP/SPMetadata.xml
             name: datacentername
             subPath: SPMetadata.xml
@@ -39,16 +39,16 @@ spec:
         - name: PLAYER_INITIAL_LIVES
           valueFrom:
             configMapKeyRef:
-              name: {{ .Values.appname }}-game-demo
+              name: {{ .Values.appname }}-game-demo # Helm templating used here
               key: player_initial_lives
         - name: MACHINE
           value: "18"
         - name: SERVER
           value: "cf111"
         - name: ENVIRONMENT
-          value: {{ .Values.environment}}
+          value: {{ .Values.environment}} # Helm templating used here
         - name: Release
-          value: {{ .Release.Name }}
+          value: {{ .Release.Name }} # Helm templating used here
         {{- if .Values.env_variables.enabled }}
         - name: Consul
           value: "True"
@@ -58,19 +58,17 @@ spec:
         {{- end }}  
       volumes:
        - emptyDir: {}
-          name: import
+          name: import # Issue here: indentation is not consistent
         # You set volumes at the Pod level, then mount them into containers inside that Pod
       - configMap:
             defaultMode: 0644
-            name: {{ .Values.appname }}-datacentername
+            name: {{ .Values.appname }}-datacentername # Helm templating used here
           name: datacentername
       - name: loadconfig
         configMap:
           # Provide the name of the ConfigMap you want to mount.
-          name: {{ .Values.appname }}-game-demo
+          name: {{ .Values.appname }}-game-demo # Helm templating used here
           # An array of keys from the ConfigMap to create as files
           items:
           - key: "player_initial_lives"
-            path: "player_initial_lives"   
-           
-        
+            path: "player_initial_lives"
