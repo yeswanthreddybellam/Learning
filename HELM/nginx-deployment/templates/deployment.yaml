@@ -25,12 +25,12 @@ spec:
         ports:
         - containerPort: {{ .Values.cport }}
         volumeMounts:
-        - mountPath: /web/SP/SPMetadata.xml
-              name: datacentername
-              subPath: SPMetadata.xml
-        - name: loadconfig
-          mountPath: "/loadconfig"
-          readOnly: true
+          - mountPath: /web/SP/SPMetadata.xml
+                name: datacentername
+                subPath: SPMetadata.xml
+          - name: loadconfig
+            mountPath: "/loadconfig"
+            readOnly: true
         env:
         - name: JVM
           value: "11"
