@@ -4,4 +4,8 @@ metadata:
   name: {{ .Values.appname }}-datacentername
   namespace: {{ .Values.namespace }}
 data:
-  datacentername: dc25-{{ .Values.appname }}
+  datacentername: |
+    { "dc25" : {
+          "envi" : "{{ .Values.appname }}"
+              } 
+    }
