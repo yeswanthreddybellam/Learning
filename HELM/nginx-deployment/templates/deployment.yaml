@@ -5,6 +5,7 @@ metadata:
   namespace: {{ .Values.namespace }} # Helm templating used here
   labels:
     app:  {{ .Values.appname }} # Helm templating used here
+    name: {{ .Release.name }}
 spec:
   replicas: {{ .Values.replicas}} # Helm templating used here
   selector:
