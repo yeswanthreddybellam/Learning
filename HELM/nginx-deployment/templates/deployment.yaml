@@ -22,7 +22,7 @@ spec:
     spec:
       containers:
       - name: nginx
-        image: nginxupload:latest
+        image: nginx
         ports:
         - containerPort: {{ .Values.cport }} # Helm templating used here
         volumeMounts:
