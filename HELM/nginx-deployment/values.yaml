@@ -3,11 +3,13 @@ namespace: qa-qacand
 appname: nginx-qacand
 ports:
  http:
+  type: http
   protocol: TCP
   port: 80
   targetPort: 80
   type: NodePort
  https:
+  type: https
   protocol: TCP
   port: 8080
   targetPort: 80
