@@ -10,7 +10,8 @@ spec:
   {{- range $key, $value := .Values.ports }}
     - name: {{ $value.type }}
       protocol: {{ $value.protocol }}
-      port: {{ $value.ports }}
+      port: {{ $value.port }}
       targetPort: {{ $value.targetPort }}
-    type: {{ $value.type_port }}  
+    type: {{ $value.type_port }}    
   {{- end }}
+
