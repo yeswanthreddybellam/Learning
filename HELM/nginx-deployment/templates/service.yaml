@@ -12,5 +12,5 @@ spec:
     protocol: {{ $value.protocol}}
     port: {{ $value.port}}
     targetPort: {{ $value.targetPort }}
-  type: {{$value.type_port}}
+  type: {{ $value.type_port }}
   {{- end }}
