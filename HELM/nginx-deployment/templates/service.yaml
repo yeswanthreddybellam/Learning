@@ -7,8 +7,10 @@ spec:
   selector:
     app: {{ .Values.appname }}
   ports:
-  - name: http
-    protocol: TCP
-    port: 80
-    targetPort: {{ .Values.cport }}
-  type: NodePort
+  {{- range $key, $value := .Values.ports }}
+  - name: {{$values.type}}
+    protocol: {{ $values.protocol}}
+    port: {{ $values.port}}
+    targetPort: {{ $values.targetPort }}
+  type: {{$values.type_port}}
+  {{- end}}
