@@ -14,4 +14,3 @@ spec:
       targetPort: {{ $value.targetPort }}
     type: {{ $value.type_port }}  
   {{- end }}
-  type: {{ (index .Values.ports 0).type_port }}
