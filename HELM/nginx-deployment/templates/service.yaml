@@ -8,9 +8,9 @@ spec:
     app: {{ .Values.appname }}
   ports:
   {{- range $key, $value := .Values.ports }}
-  - name: {{$values.type}}
-    protocol: {{ $values.protocol}}
-    port: {{ $values.port}}
-    targetPort: {{ $values.targetPort }}
-  type: {{$values.type_port}}
+  - name: {{$value.type}}
+    protocol: {{ $value.protocol}}
+    port: {{ $value.port}}
+    targetPort: {{ $value.targetPort }}
+  type: {{$value.type_port}}
   {{- end}}
