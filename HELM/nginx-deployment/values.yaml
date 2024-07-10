@@ -1,7 +1,17 @@
 metadataname: nginx-deployment-qacand
 namespace: qa-qacand
 appname: nginx-qacand
-cport: 80
+ports:
+ http:
+  protocol: TCP
+  port: 80
+  targetPort: 80
+  type: NodePort
+ https:
+  protocol: TCP
+  port: 8080
+  targetPort: 80
+  type: ClusterIP
 replicas: 2
 environment: QACAND
 env_variables:
