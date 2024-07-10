@@ -7,10 +7,11 @@ spec:
   selector:
     app: {{ .Values.appname }}
   ports:
-  {{- range .Values.ports }}
-    - name: {{ .type }}
-      protocol: {{ .protocol }}
-      port: {{ .port }}
-      targetPort: {{ .targetPort }}
+  {{- range $key, $value := .Values.ports }}
+    - name: {{ $value.type }}
+      protocol: {{ $value.protocol }}
+      port: {{ $value.ports }}
+      targetPort: {{ $value.targetPort }}
+    type: {{ $value.type_port }}  
   {{- end }}
   type: {{ (index .Values.ports 0).type_port }}
