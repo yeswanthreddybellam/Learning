@@ -7,11 +7,9 @@ spec:
   selector:
     app: {{ .Values.appname }}
   ports:
-  {{- range $key, $value := .Values.ports }}
-    - name: {{ $value.type }}
-      protocol: {{ $value.protocol }}
-      port: {{ $value.port }}
-      targetPort: {{ $value.targetPort }}
-    type: {{ $value.type_port }}    
-  {{- end }}
+    - name: http
+      protocol: TCP
+      port: 8080
+      targetPort: 80
+    type: ClusterIP
 
