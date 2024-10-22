@@ -14,7 +14,7 @@ ports:
   port: 8080
   targetPort: 80
   type_port: ClusterIP
-replicas: 2
+replicas: 3
 environment: QACAND
 env_variables:
   enabled: false
